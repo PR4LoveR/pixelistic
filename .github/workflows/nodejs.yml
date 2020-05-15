@@ -34,4 +34,4 @@ jobs:
           SOURCE: "/"
           REMOTE_HOST: 18.156.188.230
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: /home/${{ secrets.REMOTE_USER }}/builded_dubbing_app
+          TARGET: /home/${{ secrets.REMOTE_USER }}/pixelistic_app
