@@ -1,5 +1,5 @@
 "# pixelistic_be" 
-
+## Need to add npm ci
 To start server 
 <pre>node bin/www</pre>
 

@@ -17,7 +17,7 @@ const profileRouter = require('./routes/profile');
 const dashboardRouter = require('./routes/dashboard');
 
 const app = express();
-
+// mongo db connetion
 mongoose.connect ('mongodb+srv://romanplyta:needforspeed@pixelistic-js-q7fqo.mongodb.net/test?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
