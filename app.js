@@ -18,7 +18,7 @@ const dashboardRouter = require('./routes/dashboard');
 
 const app = express();
 
-mongoose.connect ('mongodb://127.0.0.1:27017');
+mongoose.connect ('mongodb+srv://romanplyta:needforspeed@pixelistic-js-q7fqo.mongodb.net/test?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind (console, 'connection error:'));
