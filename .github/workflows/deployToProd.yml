@@ -26,6 +26,6 @@ jobs:
            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}		
            ARGS: "-rltgoDzvO --delete"		
            SOURCE: "/"		
-           REMOTE_HOST: 18.156.188.230		
+           REMOTE_HOST: 18.156.109.74		
            REMOTE_USER: ${{ secrets.REMOTE_USER }}		
            TARGET: /home/${{ secrets.REMOTE_USER }}/pixelistic_app
