@@ -29,10 +29,9 @@ jobs:
      - name: Deploy to Server		
        uses: easingthemes/ssh-deploy@v2.1.1		
        env:
-           EC2_IP: $(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)
            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}		
            ARGS: "-rltgoDzvO --delete"		
            SOURCE: "/"		
-           REMOTE_HOST: ${{ env.EC2_IP }}
+           REMOTE_HOST: $(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)
            REMOTE_USER: ${{ secrets.REMOTE_USER }}		
            TARGET: /home/${{ secrets.REMOTE_USER }}/pixelistic_app
