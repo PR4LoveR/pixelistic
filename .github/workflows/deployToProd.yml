@@ -25,13 +25,18 @@ jobs:
        with:		
          node-version: ${{ matrix.node-version }}		
      - run: npm install		
-     - run: npm run build --if-present		
+     - run: npm run build --if-present	
+     - name: Print a greeting
+       env:
+         EC2_Instance_IP: $(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)
+       run: |
+         echo ${{ env.EC2_Instance_IP }} 	
      - name: Deploy to Server		
        uses: easingthemes/ssh-deploy@v2.1.1		
        env:
            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}		
            ARGS: "-rltgoDzvO --delete"		
            SOURCE: "/"		
-           REMOTE_HOST: $(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)
+           REMOTE_HOST: ${{ env.EC2_Instance_IP }}
            REMOTE_USER: ${{ secrets.REMOTE_USER }}		
            TARGET: /home/${{ secrets.REMOTE_USER }}/pixelistic_app
