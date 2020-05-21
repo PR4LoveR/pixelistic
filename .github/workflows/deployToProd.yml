@@ -12,7 +12,13 @@ jobs:
      matrix:		
        node-version: [10.x]		
 
-    steps:		
+    steps:
+     - name: Configure AWS Credentials
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         aws-region: ${{ secrets.AWS_REGION }}		
      - uses: actions/checkout@v2		
      - name: Use Node.js ${{ matrix.node-version }}		
        uses: actions/setup-node@v1		
@@ -26,6 +32,6 @@ jobs:
            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}		
            ARGS: "-rltgoDzvO --delete"		
            SOURCE: "/"		
-           REMOTE_HOST: 3.120.197.0		
+           REMOTE_HOST: $(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)
            REMOTE_USER: ${{ secrets.REMOTE_USER }}		
            TARGET: /home/${{ secrets.REMOTE_USER }}/pixelistic_app
