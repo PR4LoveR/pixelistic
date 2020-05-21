@@ -31,12 +31,12 @@ jobs:
          EC2_Instance_IP: $(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)
        run: |
          echo ${{ env.EC2_Instance_IP }} 	
-     - name: Deploy to Server		
-       uses: easingthemes/ssh-deploy@v2.1.1	
      - name: Set environment variables
        shell: bash
        run: |
           echo '::set-env name=EC2_IP::$(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)'	
+     - name: Deploy to Server		
+       uses: easingthemes/ssh-deploy@v2.1.1	
        env:
            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}		
            ARGS: "-rltgoDzvO --delete"		
