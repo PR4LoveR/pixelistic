@@ -34,7 +34,7 @@ jobs:
      - name: Set environment variables
        shell: bash
        run: |
-          echo '::set-env name=EC2_IP::'echo $(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)''	
+          echo '::set-env name=EC2_IP::'$(aws ec2 describe-addresses --query "Addresses[*].PublicIp" --output text)''	
           echo $EC2_IP
      - name: Deploy to Server		
        uses: easingthemes/ssh-deploy@v2.1.1	
