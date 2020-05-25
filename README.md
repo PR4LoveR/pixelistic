@@ -1,7 +1,5 @@
 "# pixelistic_be" 
 ## Need to add npm ci
-## add more some commits
-## new commit
 To start server 
 <pre>node bin/www</pre>
 
