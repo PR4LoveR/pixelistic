@@ -31,7 +31,7 @@ jobs:
        with:
          username: ${{ secrets.DOCKER_USER }}
          password: ${{ secrets.DOCKER_PASS }}
-         dockerfile: DockerFiles/Dockerfile
+         dockerfile: PR4LoveR/DockerFiles
          repository: ${{ secrets.DOCKER_USER }}/${{ secrets.BACKEND_NAME }}
          tag_with_ref: true
          tags: latest
