@@ -12,7 +12,7 @@ RUN npm install --production
 # RUN npm install --production
 
 # Копирование файлов проекта
-COPY pixelistic-backend/ .
+COPY ./ .
 
 # Уведомление о порте, который будет прослушивать работающее приложение
 EXPOSE 4000
