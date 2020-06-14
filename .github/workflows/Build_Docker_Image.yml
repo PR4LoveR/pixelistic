@@ -31,7 +31,6 @@ jobs:
        with:
          username: ${{ secrets.DOCKER_USER }}
          password: ${{ secrets.DOCKER_PASS }}
-         dockerfile: Docker/DockerfileBack
+         dockerfile: DockerFiles/Dockerfile
          repository: ${{ secrets.DOCKER_USER }}/${{ env.BACKEND_NAME }}
-         build_args: MONGO_USER=${{ secrets.MONGO_USER }},MONGO_PASS=${{ secrets.MONGO_PASS }},MONGO_URI='${{ secrets.MONGO_URI }}
          tags: latest
