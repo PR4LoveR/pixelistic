@@ -31,7 +31,7 @@ jobs:
        with:
          username: ${{ secrets.DOCKER_USER }}
          password: ${{ secrets.DOCKER_PASS }}
-         dockerfile: DockerFiles
+         dockerfile: pixelistic-backend/DockerFile
          repository: ${{ secrets.DOCKER_USER }}/${{ secrets.BACKEND_NAME }}
          tag_with_ref: true
          tags: latest
