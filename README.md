@@ -1,5 +1,4 @@
 ### pixelistic_be
-### Need to add npm ci
 dvsd
 <pre>node bin/www</pre>
 
